@@ -1,4 +1,4 @@
-# smartbill-opencart-importer
+# BNR_rates_importer
 
 Small app to import BNR daily currency rates
 
