@@ -1,0 +1,21 @@
+# Metadata
+.project
+.vscode
+.serenata
+nbproject
+
+# OS generated files
+._*
+.DS_Store
+.DS_Store?
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Icon?
+Thumbs.db
+
+# Files
+*.xls
+
+# Keep .gitkeep files
+!/**/.gitkeep
