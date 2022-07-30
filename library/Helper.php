@@ -67,10 +67,10 @@ class Helper
             foreach ($dailyInfo as $rate) {
                 if (in_array(strtoupper($rate->attributes[0]->value), $this->currencies)) {
                     $result[$rate->attributes[0]->value] = [
-                    'code'       => $rate->attributes[0]->value,
-                    'rate'       => $rate->nodeValue,
-                    'multiplier' => (isset($rate->attributes[1])  && !empty($rate->attributes[1])) ? $rate->attributes[1]->value : 1,
-                    'date'       => $xml[0]->attributes[0]->value,
+                        'code'       => $rate->attributes[0]->value,
+                        'rate'       => $rate->nodeValue,
+                        'multiplier' => (isset($rate->attributes[1])  && !empty($rate->attributes[1])) ? $rate->attributes[1]->value : 1,
+                        'date'       => $xml[0]->attributes[0]->value,
                     ];
                 }
             }
@@ -100,10 +100,10 @@ class Helper
                 foreach ($dailyInfo as $rate) {
                     if (in_array(strtoupper($rate->attributes[0]->value), $this->currencies)) {
                         $result[$day->attributes[0]->value . '_' . $rate->attributes[0]->value] = [
-                        'code'       => $rate->attributes[0]->value,
-                        'rate'       => floatval($rate->nodeValue),
-                        'multiplier' => (isset($rate->attributes[1])  && !empty($rate->attributes[1])) ? intval($rate->attributes[1]->value) : 1,
-                        'date'       => $day->attributes[0]->value,
+                            'code'       => $rate->attributes[0]->value,
+                            'rate'       => floatval($rate->nodeValue),
+                            'multiplier' => (isset($rate->attributes[1])  && !empty($rate->attributes[1])) ? intval($rate->attributes[1]->value) : 1,
+                            'date'       => $day->attributes[0]->value,
                         ];
                     }
                 }
@@ -139,10 +139,10 @@ class Helper
                     foreach ($dailyInfo as $rate) {
                         if (in_array(strtoupper($rate->attributes[0]->value), $this->currencies)) {
                             $result[$day->attributes[0]->value . '_' . $rate->attributes[0]->value] = [
-                            'code'       => $rate->attributes[0]->value,
-                            'rate'       => floatval($rate->nodeValue),
-                            'multiplier' => $rate->attributes[1] ? intval($rate->attributes[1]->value) : 1,
-                            'date'       => $day->attributes[0]->value,
+                                'code'       => $rate->attributes[0]->value,
+                                'rate'       => floatval($rate->nodeValue),
+                                'multiplier' => $rate->attributes[1] ? intval($rate->attributes[1]->value) : 1,
+                                'date'       => $day->attributes[0]->value,
                             ];
                         }
                     }
@@ -192,12 +192,10 @@ class Helper
         try {
             if ($year) {
                 return $this->db->query('DELETE FROM `exchange` WHERE YEAR(`date`) = :year', [
-                'year' => $year,
+                    'year' => $year,
                 ]);
             } else {
-                return $this->db->query('TRUNCATE TABLE `exchange`', [
-                'year' => $year,
-                ]);
+                return $this->db->query('TRUNCATE TABLE `exchange`');
             }
 
             return true;
