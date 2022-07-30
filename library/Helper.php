@@ -9,7 +9,7 @@
  * @copyright   2022 Sebastian Costiug, <sebastian@overbyte.dev>
  * @license     https://opensource.org/licenses/GPL-3.0
  *
- * @category    index
+ * @category    helpers
  *
  * @since       2022.07.26
  *
@@ -49,7 +49,7 @@ class Helper
      */
     public function __construct($dbHost, $dbName, $dbUserName, $dbPassword, $currencies)
     {
-        $this->db = new DB($dbHost, $dbName, $dbUserName, $dbPassword);
+        $this->db         = new DB($dbHost, $dbName, $dbUserName, $dbPassword);
         $this->currencies = $currencies;
     }
 
@@ -60,17 +60,17 @@ class Helper
      */
     public function fetchDaily()
     {
-        $xml           = self::__fetchXml('daily');
+        $xml = self::__fetchXml('daily');
         if ($xml) {
-            $dailyInfo      = $xml[0]->getElementsByTagName('Rate');
-            $result = [];
+            $dailyInfo = $xml[0]->getElementsByTagName('Rate');
+            $result    = [];
             foreach ($dailyInfo as $rate) {
                 if (in_array(strtoupper($rate->attributes[0]->value), $this->currencies)) {
                     $result[$rate->attributes[0]->value] = [
-                    'code'      => $rate->attributes[0]->value,
-                    'rate'      => $rate->nodeValue,
+                    'code'       => $rate->attributes[0]->value,
+                    'rate'       => $rate->nodeValue,
                     'multiplier' => (isset($rate->attributes[1])  && !empty($rate->attributes[1])) ? $rate->attributes[1]->value : 1,
-                    'date'      => $xml[0]->attributes[0]->value,
+                    'date'       => $xml[0]->attributes[0]->value,
                     ];
                 }
             }

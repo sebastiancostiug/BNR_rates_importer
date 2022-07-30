@@ -9,7 +9,7 @@
  * @copyright   2022 Sebastian Costiug, <sebastian@overbyte.dev>
  * @license     https://opensource.org/licenses/GPL-3.0
  *
- * @category    index
+ * @category    shell script
  *
  * @since       2022.07.26
  *

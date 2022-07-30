@@ -15,6 +15,7 @@ Icon?
 Thumbs.db
 
 # Files
+.phpcs.xml
 *.xls
 
 # Keep .gitkeep files
